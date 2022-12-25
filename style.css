@@ -70,8 +70,23 @@ h2{
 /* Nav */
 nav{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     color: aliceblue;
+    order: 1;
+}
+
+
+.Logo{
+    list-style-type: none;  
+    order: 3;
+    cursor: pointer; 
+    border: solid 2px;
+    border-color: black;
+    border-radius: 20px;
+    margin-left: 25px;
+    padding: 10px;
+    box-shadow: 0 10px 20px -5px #fff;
 }
 
 
