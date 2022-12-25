@@ -9,6 +9,7 @@
 
 }
 
+/* Background decoration */
 
 body {
     background-color: black;
@@ -51,7 +52,7 @@ header{
 
 
 .header-left{
-    padding: 25px;
+    padding: 35px;
     max-width: 50vw; 
     margin-right: 250px;
 }
@@ -59,7 +60,7 @@ header{
 h1{
     font-weight: 200;
     text-decoration: none;
-    background: linear-gradient(to right, #CCC 50%, #c84242 50% , #e91d5a);
+    background: linear-gradient(to right, #CCC 50%, #49abbc 50% , #34aee7);
     background-size: 200% ;
     background-clip: text;
     -webkit-background-clip: text;
@@ -106,6 +107,66 @@ h2{
     align-items: end;
 }
 
+
+/* Form section */
+.contactme{
+    margin-top: 100px;
+}
+
+form {
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  form li + li {
+    margin-top: 1em;
+  }
+  
+  label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+  }
+  
+  input,
+  textarea {
+    font: 1em sans-serif;
+  
+    width: 300px;
+    box-sizing: border-box;
+  
+    border: 1px solid #999;
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-color: #000;
+  }
+  
+  textarea {
+    vertical-align: top;
+  
+    height: 5em;
+  }
+  
+  .button {
+    padding-left: 90px; 
+    border: solid 2px white;
+  } 
+  
+  button {
+    margin-left: 0.5em;
+  }
+  
 
 
 
