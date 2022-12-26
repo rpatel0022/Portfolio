@@ -47,6 +47,8 @@ header{
 
 .header-section{
     justify-content: center;
+    align-items: center; 
+
 }
 
 
@@ -109,6 +111,34 @@ h1:hover{
     justify-content: right;
     align-items: end;
 }
+
+
+/* About section */
+
+.About-container{
+  margin-top: 65px;
+  margin-left: 250px;
+  margin-right: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+
+}
+
+.Right-side{
+  margin-left: 60px;
+}
+
+
+.pic{
+  margin-top: 30px;
+  width: 26vw;
+  height: 60vh;
+  background-image: url(Images/2nd\ pic.png);
+  background-size: cover;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px -5px #fff;}
 
 
 /* Form section */
