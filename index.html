@@ -12,7 +12,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Favicons/favicon-16x16.png">
     <link rel="manifest" href="Favicons/site.webmanifest">
-
 </head>
 
 <body>
@@ -42,6 +41,9 @@
                     class="mx-2 text-2xl cursor-pointer p-2 rounded-lg transition ease-in-out delay-80 bg-black-500 hover:-translate-y-1 hover:scale-110 hover:bg-slate-100 duration-300 hover:text-black">
                     Contact</li>
                 <li
+                    class="mx-2 text-2xl cursor-pointer p-2 rounded-lg transition ease-in-out delay-80 bg-black-500 hover:-translate-y-1 hover:scale-110 hover:bg-slate-100 duration-300 hover:text-black">
+                    Gallery</li>
+                <li
                     class="mx-2 text-2xl border-double border-4 slate-100 cursor-pointer p-2 rounded-lg transition ease-in-out delay-80 bg-black-500 hover:-translate-y-1 hover:scale-110 hover:bg-slate-100 duration-300 hover:text-black">
                     Resume</li>
             </ul>
@@ -53,9 +55,12 @@
     <header>
         <div class="container header-section flex ">
             <div class="header-left">
-                <h1 class="py-4 text-3xl">Welcome to my Portfolio</h1>
-                <h3 class="py-4 text-2xl">I am Rushi Patel</h3>
-                <p class="">Hello! My name is Rushi Patel Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt amet aspernatur saepe, enim optio ullam cupiditate tempore officia sequi quisquam. Natus obcaecati exercitationem laudantium, necessitatibus vitae totam repellendus provident impedit, delectus et saepe quaerat. Consectetur animi sed nihil temporibus asperiores.
+                <h1 class="py-4 h1">Welcome to my Portfolio</h1>
+                <h2 data-text="I am Rushi Patel" class="py-4 h2">I am Rushi Patel</h2>
+                <p>Hello! My name is Rushi Patel Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Deserunt amet aspernatur saepe, enim optio ullam cupiditate tempore officia sequi quisquam. Natus
+                    obcaecati exercitationem laudantium, necessitatibus vitae totam repellendus provident impedit,
+                    delectus et saepe quaerat. Consectetur animi sed nihil temporibus asperiores.
                 </p>
             </div>
             <div class="header-right">
@@ -66,29 +71,33 @@
     </header>
 
     <section>
+
+    </section>
+
+    <section>
         <div class="contactme">
             <form action="/my-handling-form-page" method="post">
                 <ul>
-                  <li>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="user_name" />
-                  </li>
-                  <li>
-                    <label for="mail">Email:</label>
-                    <input type="email" id="mail" name="user_email" />
-                  </li>
-                  <li>
-                    <label for="msg">Message:</label>
-                    <textarea id="msg" name="user_message"></textarea>
-                  </li>
-                  <li class="button">
-                    <button type="submit">Send your message</button>
-                  </li>
-                  
-                </ul>
-              </form>         
+                    <li>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="user_name" />
+                    </li>
+                    <li>
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" name="user_email" />
+                    </li>
+                    <li>
+                        <label for="msg">Message:</label>
+                        <textarea id="msg" name="user_message"></textarea>
+                    </li>
+                    <li class="button">
+                        <button type="submit">Send your message</button>
+                    </li>
 
-                   
+                </ul>
+            </form>
+
+
         </div>
     </section>
 

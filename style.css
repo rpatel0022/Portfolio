@@ -6,7 +6,6 @@
     background-color: black;
     color: beige;
     height: auto;
-
 }
 
 /* Background decoration */
@@ -14,6 +13,7 @@
 body {
     background-color: black;
     min-height: 100vh;
+
 }
 
 /* Navigation section */
@@ -41,26 +41,37 @@ nav{
 /* Header */
 
 header{
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 250px;
+    margin-right: 300px;
 }
 
 .header-section{
     justify-content: center;
-    gap:50px 
 }
 
 
 .header-left{
     padding: 35px;
+    margin-right: 50px;
     max-width: 50vw; 
-    margin-right: 250px;
+    margin-bottom: 100px;
+}
+
+
+.h1{
+  font-size: 3vw;
+
+}
+
+.h2{
+  font-size: 1.5vw;
+
 }
 
 h1{
     font-weight: 200;
     text-decoration: none;
-    background: linear-gradient(to right, #CCC 50%, #49abbc 50% , #34aee7);
+    background: linear-gradient(to right, #CCC 50%, #d26156 50% , #f23535);
     background-size: 200% ;
     background-clip: text;
     -webkit-background-clip: text;
@@ -91,14 +102,6 @@ h1:hover{
 
 .header-left h1{
     margin-top: 20px;
-}
-
-h1{
-    font-size: 5rem;
-}
-
-h2{
-    font-size: 3rem;
 }
 
 .container{
