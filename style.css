@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: black;
+    font-family: 'Roboto Slab', serif;
+    background-color: #04151F;
     color: beige;
     height: auto;
 }
@@ -11,19 +12,21 @@
 /* Background decoration */
 
 body {
-    background-color: black;
+    background-color: #04151F;
     min-height: 100vh;
 
 }
 
 /* Navigation section */
 nav{
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: aliceblue;
     order: 1;
 }
+
 
 
 .Logo{
@@ -40,40 +43,63 @@ nav{
 
 /* Header */
 
-header{
-    margin-left: 250px;
-    margin-right: 300px;
+.container{
+  margin-left: 40px;
+  background-color: #04151F;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-right: 0px;
 }
 
-.header-section{
-    justify-content: center;
-    align-items: center; 
-
+.text-area{
+  background-color: #EFD6AC;
+  color: #183A37;
 }
-
 
 .header-left{
-    padding: 35px;
-    margin-right: 50px;
-    max-width: 50vw; 
-    margin-bottom: 100px;
+  background-color: #EFD6AC;
+  border: solid 2px #183A37;
+  border-radius: 34px;
+  color: #183A37;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: solid 2px white;
+  padding: 55px;
+  margin-left: 25px;
+  margin-right: 15px;
+}
+
+.header-right{
+  background-color: #183A37;
+  border: solid 2px #EFD6AC;
+  border-radius: 34px;
+  padding: 35px;
+
 }
 
 
 .h1{
   font-size: 3vw;
+  font-family: 'Seymour One', sans-serif;
+
 
 }
 
 .h2{
-  font-size: 1.5vw;
+  font-size: 2.2vw;
 
+}
+
+p{
+  font-size: 1.5vw;
 }
 
 h1{
     font-weight: 200;
     text-decoration: none;
-    background: linear-gradient(to right, #CCC 50%, #d26156 50% , #f23535);
+    background: linear-gradient(to right, #183A37 50%, #C44900 50% , #432534);
     background-size: 200% ;
     background-clip: text;
     -webkit-background-clip: text;
@@ -86,30 +112,18 @@ h1:hover{
 }
 
 .hoverme{ 
-    margin-top: 30px;
-    width: 20vw;
-    height: 60vh;
-    background-image: url(Images/static\ image.png);
+    width: 25vw;
+    height: 85vh;
+    background-image: url(Images/New\ Static\ Image.png);
     background-size: cover;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 10px 20px -5px #fff;
+    box-shadow: 0 10px 20px -5px #EFD6AC;
 
 }
 
 .hoverme:hover{
-    background-image: url(Images/Thats\ me.gif);
-}
-
-
-.header-left h1{
-    margin-top: 20px;
-}
-
-.container{
-    display: flex;
-    justify-content: right;
-    align-items: end;
+    background-image: url(Images/Updated.gif);
 }
 
 
