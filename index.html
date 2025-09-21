@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rushi Patel | AI/ML Developer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <script>
+      // Tailwind configuration
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              "electric-blue": "#4F9CF9",
+              "vibrant-orange": "#FF6B35",
+              "deep-navy": "#0B1426",
+              "dark-blue": "#1A2332",
+              "accent-blue": "#2563EB",
+              "border-glow": "rgba(79, 156, 249, 0.3)",
+              "orange-glow": "rgba(255, 107, 53, 0.2)",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.6s ease-in-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              float: "float 6s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #4f9cf9, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .dark .gradient-text {
+        background: linear-gradient(135deg, #4f9cf9, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glow-border {
+        border: 1px solid rgba(79, 156, 249, 0.3);
+        box-shadow: 0 0 20px rgba(79, 156, 249, 0.1);
+      }
+
+      .orange-glow-border {
+        border: 1px solid rgba(255, 107, 53, 0.4);
+        box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        border-color: rgba(79, 156, 249, 0.6);
+        box-shadow: 0 0 30px rgba(79, 156, 249, 0.2),
+          0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-frame {
+        position: relative;
+        width: 350px;
+        height: 400px;
+        background: linear-gradient(135deg, #4f9cf9, #ff6b35);
+        border-radius: 30px;
+        padding: 6px;
+        transform: rotate(-2deg);
+        transition: all 0.6s ease;
+      }
+
+      .profile-frame:hover {
+        transform: rotate(2deg) scale(1.05);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .profile-inner {
+        width: 100%;
+        height: 100%;
+        background: #0b1426;
+        border-radius: 24px;
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 85%;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .profile-image:hover img {
+        transform: scale(1.1);
+      }
+
+      .profile-badge {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, #ff6b35, #4f9cf9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+      }
+
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .floating-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #4f9cf9;
+        border-radius: 50%;
+        animation: float-dot 4s ease-in-out infinite;
+      }
+
+      .floating-dot:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: -1s;
+      }
+
+      .floating-dot:nth-child(2) {
+        top: 60%;
+        right: 15%;
+        animation-delay: -2s;
+        background: #ff6b35;
+      }
+
+      .floating-dot:nth-child(3) {
+        bottom: 30%;
+        left: 20%;
+        animation-delay: -3s;
+        width: 12px;
+        height: 12px;
+      }
+
+      @keyframes float-dot {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+          opacity: 1;
+        }
+      }
+
+      .tech-badge {
+        position: absolute;
+        background: rgba(79, 156, 249, 0.1);
+        border: 1px solid rgba(79, 156, 249, 0.3);
+        border-radius: 15px;
+        padding: 6px 12px;
+        color: #4f9cf9;
+        font-size: 11px;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+        animation: tech-float 6s ease-in-out infinite;
+      }
+
+      .tech-badge:nth-child(1) {
+        top: 15%;
+        right: -20px;
+        animation-delay: -1s;
+      }
+
+      .tech-badge:nth-child(2) {
+        bottom: 25%;
+        left: -30px;
+        background: rgba(255, 107, 53, 0.1);
+        border-color: rgba(255, 107, 53, 0.3);
+        color: #ff6b35;
+        animation-delay: -3s;
+      }
+
+      .tech-badge:nth-child(3) {
+        top: 50%;
+        right: -25px;
+        animation-delay: -5s;
+      }
+
+      @keyframes tech-float {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+        }
+        33% {
+          transform: translateY(-15px) translateX(5px);
+        }
+        66% {
+          transform: translateY(10px) translateX(-5px);
+        }
+      }
+
+      /* Project Filter Styles */
+      .filter-btn.active {
+        background-color: var(--color);
+        color: white;
+      }
+
+      .filter-btn.active[data-filter="all"] {
+        background-color: #4f9cf9;
+        border-color: #4f9cf9;
+      }
+
+      .filter-btn.active[data-filter="ml"] {
+        background-color: #ff6b35;
+        border-color: #ff6b35;
+      }
+
+      .filter-btn.active[data-filter="dl"] {
+        background-color: #2563eb;
+        border-color: #2563eb;
+      }
+
+      .filter-btn.active[data-filter="mlops"] {
+        background-color: #8b5cf6;
+        border-color: #8b5cf6;
+      }
+
+      .project-card.hidden {
+        display: none;
+      }
+
+      /* Background Animation Styles */
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .animated-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          -45deg,
+          rgba(79, 156, 249, 0.03),
+          rgba(255, 107, 53, 0.03),
+          rgba(37, 99, 235, 0.03),
+          rgba(139, 92, 246, 0.03)
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .floating-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(79, 156, 249, 0.1);
+        border-radius: 50%;
+        animation: floatParticle 20s infinite linear;
+        opacity: 0;
+      }
+
+      .particle:nth-child(1) {
+        width: 4px;
+        height: 4px;
+        left: 10%;
+        animation-delay: -2s;
+        animation-duration: 25s;
+      }
+
+      .particle:nth-child(2) {
+        width: 6px;
+        height: 6px;
+        left: 20%;
+        animation-delay: -4s;
+        animation-duration: 30s;
+        background: rgba(255, 107, 53, 0.08);
+      }
+
+      .particle:nth-child(3) {
+        width: 3px;
+        height: 3px;
+        left: 30%;
+        animation-delay: -6s;
+        animation-duration: 22s;
+      }
+
+      .particle:nth-child(4) {
+        width: 5px;
+        height: 5px;
+        left: 40%;
+        animation-delay: -8s;
+        animation-duration: 28s;
+        background: rgba(37, 99, 235, 0.06);
+      }
+
+      .particle:nth-child(5) {
+        width: 4px;
+        height: 4px;
+        left: 50%;
+        animation-delay: -10s;
+        animation-duration: 24s;
+      }
+
+      .particle:nth-child(6) {
+        width: 7px;
+        height: 7px;
+        left: 60%;
+        animation-delay: -12s;
+        animation-duration: 26s;
+        background: rgba(139, 92, 246, 0.05);
+      }
+
+      .particle:nth-child(7) {
+        width: 3px;
+        height: 3px;
+        left: 70%;
+        animation-delay: -14s;
+        animation-duration: 32s;
+      }
+
+      .particle:nth-child(8) {
+        width: 5px;
+        height: 5px;
+        left: 80%;
+        animation-delay: -16s;
+        animation-duration: 27s;
+        background: rgba(255, 107, 53, 0.06);
+      }
+
+      .particle:nth-child(9) {
+        width: 4px;
+        height: 4px;
+        left: 90%;
+        animation-delay: -18s;
+        animation-duration: 29s;
+      }
+
+      @keyframes floatParticle {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.3;
+        }
+        90% {
+          opacity: 0.3;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.03;
+        animation: geometricFloat 20s ease-in-out infinite;
+      }
+
+      .shape-1 {
+        top: 20%;
+        left: 5%;
+        width: 60px;
+        height: 60px;
+        border: 2px solid #4f9cf9;
+        border-radius: 50%;
+        animation-delay: -5s;
+      }
+
+      .shape-2 {
+        top: 60%;
+        right: 10%;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #ff6b35;
+        transform: rotate(45deg);
+        animation-delay: -10s;
+      }
+
+      .shape-3 {
+        bottom: 30%;
+        left: 15%;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 35px solid rgba(37, 99, 235, 0.1);
+        animation-delay: -15s;
+      }
+
+      @keyframes geometricFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-20px) rotate(120deg);
+        }
+        66% {
+          transform: translateY(10px) rotate(240deg);
+        }
+      }
+
+      /* Custom Cursor Animation */
+      * {
+        cursor: none;
+      }
+
+      .cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #4f9cf9;
+        border-radius: 50%;
+        background: rgba(79, 156, 249, 0.1);
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: difference;
+        transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          border-color 0.2s ease, background 0.2s ease;
+        will-change: transform;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .cursor-trail {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        background: radial-gradient(
+          circle at center,
+          rgba(79, 156, 249, 0.9) 0%,
+          rgba(79, 156, 249, 0.6) 40%,
+          rgba(255, 107, 53, 0.8) 70%,
+          rgba(255, 107, 53, 0.4) 100%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        opacity: 0;
+        will-change: transform, opacity;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 0.2s ease-out;
+      }
+
+      .cursor-trail.active {
+        opacity: 1;
+      }
+
+      .cursor.cursor-hover {
+        transform: scale(1.5);
+        border-color: #ff6b35;
+        background: rgba(255, 107, 53, 0.2);
+      }
+
+      .cursor.cursor-click {
+        transform: scale(2);
+        border-color: #8b5cf6;
+        background: rgba(139, 92, 246, 0.3);
+      }
+
+      /* Cursor sparkles */
+      .cursor-sparkle {
+        position: fixed;
+        width: 4px;
+        height: 4px;
+        background: #4f9cf9;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9997;
+        animation: sparkle 1.5s ease-out forwards;
+      }
+
+      @keyframes sparkle {
+        0% {
+          transform: scale(0) rotate(0deg);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1) rotate(180deg);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(0) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Interactive elements cursor styles */
+      a,
+      button,
+      .project-card,
+      .filter-btn {
+        cursor: none !important;
+      }
+
+      /* Hide default cursor on mobile */
+      @media (max-width: 768px) {
+        .cursor,
+        .cursor-trail,
+        .cursor-sparkle {
+          display: none;
+        }
+        * {
+          cursor: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="font-inter bg-gray-50 dark:bg-deep-navy text-gray-900 dark:text-white transition-colors duration-300"
+  >
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full bg-white/80 dark:bg-dark-blue/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-border-glow glow-border"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo/Name -->
+          <div class="text-xl font-bold gradient-text">Rushi Patel</div>
+
+          <!-- Navigation Links -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="hover:text-vibrant-orange transition-colors duration-200"
+              >Home</a
+            >
+            <a
+              href="#projects"
+              class="hover:text-vibrant-orange transition-colors duration-200"
+              >Projects</a
+            >
+            <a
+              href="#experience"
+              class="hover:text-vibrant-orange transition-colors duration-200"
+              >Experience</a
+            >
+            <a
+              href="#blogs"
+              class="hover:text-vibrant-orange transition-colors duration-200"
+              >Blogs</a
+            >
+            <a
+              href="#contact"
+              class="hover:text-vibrant-orange transition-colors duration-200"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Dark Mode Toggle -->
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-lg bg-gray-200 dark:bg-dark-blue hover:bg-gray-300 dark:hover:bg-electric-blue/20 transition-colors duration-200 glow-border"
+          >
+            <i class="fas fa-sun dark:hidden"></i>
+            <i class="fas fa-moon hidden dark:block"></i>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-toggle" class="md:hidden p-2">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white dark:bg-dark-blue border-t border-gray-200 dark:border-border-glow"
+      >
+        <div class="px-4 py-4 space-y-3">
+          <a
+            href="#home"
+            class="block hover:text-vibrant-orange transition-colors duration-200"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="block hover:text-vibrant-orange transition-colors duration-200"
+            >Projects</a
+          >
+          <a
+            href="#experience"
+            class="block hover:text-vibrant-orange transition-colors duration-200"
+            >Experience</a
+          >
+          <a
+            href="#blogs"
+            class="block hover:text-vibrant-orange transition-colors duration-200"
+            >Blogs</a
+          >
+          <a
+            href="#contact"
+            class="block hover:text-vibrant-orange transition-colors duration-200"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center pt-20 px-4 relative"
+    >
+      <!-- Background Animation -->
+      <div class="hero-background">
+        <!-- Animated Gradient Background -->
+        <div class="animated-background"></div>
+
+        <!-- Floating Particles -->
+        <div class="floating-particles">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+
+        <!-- Geometric Shapes -->
+        <div class="geometric-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="text-center lg:text-left animate-slide-up">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            <span class="block text-gray-900 dark:text-white">Hi, I'm</span>
+            <span class="block gradient-text">Rushi Patel</span>
+          </h1>
+
+          <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
+            AI/ML Developer | Crafting Intelligent Solutions
+          </p>
+
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl">
+            <!-- PLACEHOLDER: Replace with your bio -->
+            Passionate Computer Science student specializing in Artificial
+            Intelligence and Machine Learning. I love building innovative
+            solutions that bridge the gap between cutting-edge research and
+            real-world applications.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          >
+            <a
+              href="#projects"
+              class="px-8 py-3 bg-vibrant-orange text-white rounded-lg hover:bg-orange-600 transition-all duration-200 font-medium shadow-lg hover:shadow-xl orange-glow-border"
+            >
+              View My Work
+            </a>
+            <a
+              href="#contact"
+              class="px-8 py-3 border-2 border-electric-blue text-electric-blue rounded-lg hover:bg-electric-blue hover:text-white transition-all duration-200 font-medium glow-border"
+            >
+              Get In Touch
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Content - Profile Picture -->
+        <div class="flex justify-center lg:justify-end relative">
+          <div class="profile-frame">
+            <div class="profile-inner">
+              <div class="profile-image">
+                <!-- PLACEHOLDER: Replace with your profile picture -->
+                <img
+                  src="Profile picture.png"
+                  alt="Rushi Patel"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="profile-badge">AI/ML Engineer</div>
+            </div>
+          </div>
+
+          <!-- Floating Tech Badges -->
+          <div class="tech-badge">Python</div>
+          <div class="tech-badge">TensorFlow</div>
+          <div class="tech-badge">PyTorch</div>
+
+          <!-- Floating Decorative Elements -->
+          <div class="floating-elements">
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-white dark:bg-dark-blue">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+            Featured Projects
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Showcasing my latest work in AI and Machine Learning
+          </p>
+
+          <!-- Project Filter Buttons -->
+          <div class="flex justify-center gap-4 mt-8 flex-wrap">
+            <button
+              class="filter-btn active px-6 py-2 rounded-full border-2 border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white transition-all duration-200 font-medium"
+              data-filter="all"
+            >
+              All Projects
+            </button>
+            <button
+              class="filter-btn px-6 py-2 rounded-full border-2 border-vibrant-orange text-vibrant-orange hover:bg-vibrant-orange hover:text-white transition-all duration-200 font-medium"
+              data-filter="ml"
+            >
+              Machine Learning
+            </button>
+            <button
+              class="filter-btn px-6 py-2 rounded-full border-2 border-accent-blue text-accent-blue hover:bg-accent-blue hover:text-white transition-all duration-200 font-medium"
+              data-filter="dl"
+            >
+              Deep Learning
+            </button>
+            <button
+              class="filter-btn px-6 py-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-all duration-200 font-medium"
+              data-filter="mlops"
+            >
+              MLOps
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="projects-container"
+        >
+          <!-- Machine Learning Project -->
+          <div
+            class="project-card bg-gray-50 dark:bg-deep-navy rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer card-hover glow-border"
+            data-category="ml"
+            onclick="window.open('https://github.com/rpatel0022/Email-Spam-Classifier', '_blank')"
+          >
+            <div class="mb-4">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-electric-blue to-vibrant-orange rounded-lg flex items-center justify-center mb-4 shadow-lg"
+              >
+                <i class="fas fa-shield-alt text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Email Spam Classifier</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Machine learning model to classify SMS/email messages as spam or
+                ham using natural language processing and multiple ML
+                algorithms, achieving 98% accuracy with Naive Bayes.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-electric-blue/20 text-electric-blue rounded-full text-sm border border-electric-blue/30"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-electric-blue/20 text-electric-blue rounded-full text-sm border border-electric-blue/30"
+                  >Scikit-learn</span
+                >
+                <span
+                  class="px-3 py-1 bg-electric-blue/20 text-electric-blue rounded-full text-sm border border-electric-blue/30"
+                  >NLTK</span
+                >
+              </div>
+            </div>
+
+            <a
+              href="https://github.com/rpatel0022/Email-Spam-Classifier"
+              target="_blank"
+              class="inline-flex items-center text-vibrant-orange hover:text-orange-400 font-medium transition-colors duration-200"
+            >
+              View on GitHub <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Machine Learning Project 2 -->
+          <div
+            class="project-card bg-gray-50 dark:bg-deep-navy rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer card-hover glow-border"
+            data-category="ml"
+            onclick="window.open('https://github.com/rpatel0022/Movie-Recommender-System', '_blank')"
+          >
+            <div class="mb-4">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-vibrant-orange to-red-500 rounded-lg flex items-center justify-center mb-4 shadow-lg"
+              >
+                <i class="fas fa-film text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Movie Recommender System</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Content-based movie recommendation system using NLP and cosine
+                similarity. Processes 5,000+ movies with advanced text
+                processing, feature engineering, and deployed on Heroku with
+                interactive web interface.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-vibrant-orange/20 text-vibrant-orange rounded-full text-sm border border-vibrant-orange/30"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-vibrant-orange/20 text-vibrant-orange rounded-full text-sm border border-vibrant-orange/30"
+                  >Scikit-learn</span
+                >
+                <span
+                  class="px-3 py-1 bg-vibrant-orange/20 text-vibrant-orange rounded-full text-sm border border-vibrant-orange/30"
+                  >NLTK</span
+                >
+              </div>
+            </div>
+
+            <a
+              href="https://github.com/rpatel0022/Movie-Recommender-System"
+              target="_blank"
+              class="inline-flex items-center text-vibrant-orange hover:text-orange-400 font-medium transition-colors duration-200"
+            >
+              View on GitHub <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Deep Learning Project -->
+          <div
+            class="project-card bg-gray-50 dark:bg-deep-navy rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer card-hover glow-border"
+            data-category="dl"
+            onclick="window.open('https://github.com/rpatel0022/micro-expression-detection', '_blank')"
+          >
+            <div class="mb-4">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-accent-blue to-purple-500 rounded-lg flex items-center justify-center mb-4 shadow-lg"
+              >
+                <i class="fas fa-eye text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Micro-Expression Detection</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Advanced computer vision system for lie detection through
+                micro-expression analysis. Features real-time facial expression
+                processing, bias mitigation, and comprehensive web interface
+                with 91% accuracy.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-accent-blue/20 text-accent-blue rounded-full text-sm border border-accent-blue/30"
+                  >React.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-accent-blue/20 text-accent-blue rounded-full text-sm border border-accent-blue/30"
+                  >Computer Vision</span
+                >
+                <span
+                  class="px-3 py-1 bg-accent-blue/20 text-accent-blue rounded-full text-sm border border-accent-blue/30"
+                  >Node.js</span
+                >
+              </div>
+            </div>
+
+            <a
+              href="https://github.com/rpatel0022/micro-expression-detection"
+              target="_blank"
+              class="inline-flex items-center text-accent-blue hover:text-blue-300 font-medium transition-colors duration-200"
+            >
+              View on GitHub <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+          </div>
+
+          <!-- MLOps Placeholder -->
+          <div
+            class="project-card bg-gray-50 dark:bg-deep-navy rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 card-hover glow-border opacity-60"
+            data-category="mlops"
+          >
+            <div class="mb-4">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 shadow-lg"
+              >
+                <i class="fas fa-cogs text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">MLOps Pipeline</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Coming soon in January 2025! End-to-end ML pipelines, model
+                deployment, monitoring, and production systems.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-purple-500/20 text-purple-500 rounded-full text-sm border border-purple-500/30"
+                  >Docker</span
+                >
+                <span
+                  class="px-3 py-1 bg-purple-500/20 text-purple-500 rounded-full text-sm border border-purple-500/30"
+                  >Kubernetes</span
+                >
+                <span
+                  class="px-3 py-1 bg-purple-500/20 text-purple-500 rounded-full text-sm border border-purple-500/30"
+                  >MLflow</span
+                >
+              </div>
+            </div>
+
+            <div class="inline-flex items-center text-gray-500 font-medium">
+              <i class="fas fa-clock mr-2"></i>
+              Coming Soon
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-white dark:bg-dark-blue">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+            Experience
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Professional journey and key accomplishments
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <!-- Experience Item 1 - Current Position -->
+          <div
+            class="bg-gray-50 dark:bg-deep-navy rounded-xl p-8 glow-border card-hover"
+          >
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
+            >
+              <div>
+                <h3 class="text-xl font-bold">ITS Multimedia Operator</h3>
+                <p class="text-vibrant-orange font-medium">Student Operator</p>
+              </div>
+              <div class="text-gray-600 dark:text-gray-400">
+                September 2023 - Present
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li class="flex items-start">
+                <i
+                  class="fas fa-chevron-right text-vibrant-orange mt-1 mr-3"
+                ></i>
+                Provide technical support for 15+ classrooms and event spaces,
+                ensuring 99% uptime of AV systems (PCs, projectors, smart
+                displays, microphones) through proactive setup and live
+                troubleshooting
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-chevron-right text-vibrant-orange mt-1 mr-3"
+                ></i>
+                Resolved 100+ on-site technical issues (HDMI, audio, display)
+                with <5 min response time, reducing instructor disruptions and
+                ensuring smooth class operations
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-chevron-right text-vibrant-orange mt-1 mr-3"
+                ></i>
+                Spearheading development of an AI-powered support chatbot to
+                assist new operators with common tasks, projected to reduce
+                onboarding time by 40% and improve first-time fix rate
+              </li>
+            </ul>
+          </div>
+
+          <!-- Experience Item 2 - Previous Internship -->
+          <div
+            class="bg-gray-50 dark:bg-deep-navy rounded-xl p-8 glow-border card-hover"
+          >
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
+            >
+              <div>
+                <h3 class="text-xl font-bold">Software Engineer Intern</h3>
+                <p class="text-vibrant-orange font-medium">Mindtapp</p>
+              </div>
+              <div class="text-gray-600 dark:text-gray-400">
+                July 2024 - January 2025
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li class="flex items-start">
+                <i
+                  class="fas fa-chevron-right text-vibrant-orange mt-1 mr-3"
+                ></i>
+                Developed and fine-tuned a personalized AI chatbot using Gemini,
+                enabling users to track goal progress and receive motivational
+                feedback; boosted user return rate by 25%
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-chevron-right text-vibrant-orange mt-1 mr-3"
+                ></i>
+                Implemented a goal-based reminder and notification system using
+                Google Firebase, increasing daily engagement and task completion
+                consistency across users
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-chevron-right text-vibrant-orange mt-1 mr-3"
+                ></i>
+                Collaborated with product and psychology teams to integrate
+                user-uploaded goal imagery into interactive game loops,
+                reinforcing long-term motivation through behavioral design
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+            From the Blog
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Sharing insights and knowledge with the community
+          </p>
+        </div>
+
+        <div class="flex justify-center">
+          <!-- Blog Post 1 - Actual Medium Article -->
+          <article
+            class="bg-white dark:bg-deep-navy rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 glow-border card-hover max-w-md"
+          >
+            <div
+              class="h-48 bg-gradient-to-r from-electric-blue to-vibrant-orange flex items-center justify-center"
+            >
+              <i class="fas fa-microchip text-white text-4xl"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <span class="text-sm text-gray-500 dark:text-gray-400"
+                  >3 min read • Aug 26, 2025</span
+                >
+              </div>
+              <h3 class="text-xl font-bold mb-3">
+                Making AI Models Smaller and Faster: A Beginner's Guide
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Ever wonder how those incredible AI apps run so smoothly on your
+                phone? Today, we're going to look at the smart tricks engineers
+                use to get huge AI models, like the famous LLaMA 2, to work on
+                your phone.
+              </p>
+              <a
+                href="https://medium.com/@patel.rus19/making-ai-models-smaller-and-faster-a-beginners-guide-b8df64e77ee3"
+                target="_blank"
+                class="text-vibrant-orange hover:text-orange-400 font-medium inline-flex items-center transition-colors duration-200"
+              >
+                Read on Medium <i class="fas fa-external-link-alt ml-2"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="py-20 px-4 bg-white dark:bg-dark-blue">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+            My GitHub
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            A snapshot of my development activity
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- GitHub Stats Card -->
+          <div
+            class="bg-gray-50 dark:bg-deep-navy rounded-xl p-6 glow-border card-hover"
+          >
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fab fa-github text-vibrant-orange mr-3"></i>
+              GitHub Stats
+            </h3>
+            <div id="github-stats" class="space-y-4">
+              <!-- Stats will be loaded dynamically -->
+              <div class="flex justify-between">
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Public Repos:</span
+                >
+                <span id="repo-count" class="font-bold">Loading...</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600 dark:text-gray-400">Followers:</span>
+                <span id="followers-count" class="font-bold">Loading...</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600 dark:text-gray-400">Following:</span>
+                <span id="following-count" class="font-bold">Loading...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Repositories -->
+          <div
+            class="bg-gray-50 dark:bg-deep-navy rounded-xl p-6 glow-border card-hover"
+          >
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fas fa-code-branch text-vibrant-orange mr-3"></i>
+              Recent Repos
+            </h3>
+            <div id="recent-repos" class="space-y-3">
+              <!-- Repos will be loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div
+            class="bg-gray-50 dark:bg-deep-navy rounded-xl p-6 glow-border card-hover"
+          >
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fas fa-code text-vibrant-orange mr-3"></i>
+              Top Languages
+            </h3>
+            <div id="top-languages" class="space-y-3">
+              <!-- Languages will be loaded dynamically -->
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600 dark:text-gray-400">Python</span>
+                <div class="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div
+                    class="bg-vibrant-orange h-2 rounded-full"
+                    style="width: 60%"
+                  ></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600 dark:text-gray-400">JavaScript</span>
+                <div class="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div
+                    class="bg-electric-blue h-2 rounded-full"
+                    style="width: 30%"
+                  ></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600 dark:text-gray-400">HTML/CSS</span>
+                <div class="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div
+                    class="bg-accent-blue h-2 rounded-full"
+                    style="width: 10%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub Contribution Graph Placeholder -->
+        <div class="mt-12 text-center">
+          <div
+            class="bg-gray-50 dark:bg-deep-navy rounded-xl p-8 glow-border card-hover"
+          >
+            <h3 class="text-xl font-bold mb-4">Contribution Activity</h3>
+            <!-- PLACEHOLDER: You can integrate a GitHub contribution graph widget here -->
+            <p class="text-gray-600 dark:text-gray-400">
+              <a
+                href="https://github.com/rpatel0022"
+                target="_blank"
+                class="text-vibrant-orange hover:text-orange-400 transition-colors duration-200"
+              >
+                View full activity on GitHub →
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+          Get In Touch
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-12">
+          Let's connect and discuss opportunities, collaborations, or just chat
+          about AI and technology!
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <!-- Email -->
+          <a href="mailto:patel.rus19@gmail.com" class="group">
+            <div
+              class="bg-white dark:bg-deep-navy rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 glow-border card-hover"
+            >
+              <div
+                class="w-16 h-16 bg-vibrant-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <i class="fas fa-envelope text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Email</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                patel.rus19@gmail.com
+              </p>
+            </div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/rushi-patel-82406719b/"
+            target="_blank"
+            class="group"
+          >
+            <div
+              class="bg-white dark:bg-deep-navy rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 glow-border card-hover"
+            >
+              <div
+                class="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <i class="fab fa-linkedin text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">LinkedIn</h3>
+              <p class="text-gray-600 dark:text-gray-400">Connect with me</p>
+            </div>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/rpatel0022" target="_blank" class="group">
+            <div
+              class="bg-white dark:bg-deep-navy rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 glow-border card-hover"
+            >
+              <div
+                class="w-16 h-16 bg-gray-800 dark:bg-accent-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <i class="fab fa-github text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">GitHub</h3>
+              <p class="text-gray-600 dark:text-gray-400">View my code</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Resume Download -->
+        <a
+          href="RushiPatel_Resume.pdf"
+          download
+          class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-vibrant-orange to-electric-blue text-white rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 font-medium text-lg orange-glow-border"
+        >
+          <i class="fas fa-download mr-3"></i>
+          Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="py-8 px-4 bg-white dark:bg-dark-blue border-t border-gray-200 dark:border-border-glow"
+    >
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-600 dark:text-gray-400">
+          © 2024 Rushi Patel. Built with ❤️.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Dark mode functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+
+      // Check for saved theme preference or default to system preference
+      const savedTheme = localStorage.getItem("theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      const currentTheme = savedTheme || systemTheme;
+
+      html.classList.toggle("dark", currentTheme === "dark");
+
+      themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const newTheme = html.classList.contains("dark") ? "dark" : "light";
+        localStorage.setItem("theme", newTheme);
+      });
+
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Intersection Observer for animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-slide-up");
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections for animation
+      document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section);
+      });
+
+      // GitHub API integration
+      async function loadGitHubData() {
+        const username = "rpatel0022"; // Updated with actual GitHub username
+
+        try {
+          // Fetch user data
+          const userResponse = await fetch(
+            `https://api.github.com/users/${username}`
+          );
+          const userData = await userResponse.json();
+
+          if (userResponse.ok) {
+            document.getElementById("repo-count").textContent =
+              userData.public_repos;
+            document.getElementById("followers-count").textContent =
+              userData.followers;
+            document.getElementById("following-count").textContent =
+              userData.following;
+          }
+
+          // Fetch repositories
+          const reposResponse = await fetch(
+            `https://api.github.com/users/${username}/repos?sort=updated&per_page=3`
+          );
+          const reposData = await reposResponse.json();
+
+          if (reposResponse.ok) {
+            const recentReposContainer =
+              document.getElementById("recent-repos");
+            recentReposContainer.innerHTML = "";
+
+            reposData.forEach((repo) => {
+              const repoElement = document.createElement("div");
+              repoElement.innerHTML = `
+                            <a href="${
+                              repo.html_url
+                            }" target="_blank" class="block hover:text-electric-blue transition-colors duration-200">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium">${
+                                      repo.name
+                                    }</span>
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">${
+                                  repo.description || "No description"
+                                }</p>
+                            </a>
+                        `;
+              recentReposContainer.appendChild(repoElement);
+            });
+          }
+        } catch (error) {
+          console.log("GitHub API rate limited or unavailable");
+          // Fallback content is already in place
+        }
+      }
+
+      // Load GitHub data when page loads
+      document.addEventListener("DOMContentLoaded", loadGitHubData);
+
+      // Add hover effects to project cards
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-8px)";
+          card.style.boxShadow =
+            "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "translateY(0)";
+          card.style.boxShadow = "";
+        });
+      });
+
+      // Add typing effect to hero section (optional enhancement)
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+
+        type();
+      }
+
+      // Initialize typing effect when page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        const tagline = document.querySelector(
+          'p[class*="text-xl md:text-2xl"]'
+        );
+        if (tagline) {
+          const originalText = tagline.textContent;
+          setTimeout(() => {
+            typeWriter(tagline, originalText, 50);
+          }, 1000);
+        }
+      });
+
+      // Add parallax effect to hero section
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const heroSection = document.getElementById("home");
+        const profilePicture = heroSection.querySelector(".animate-float");
+
+        if (profilePicture) {
+          profilePicture.style.transform = `translateY(${scrolled * 0.2}px)`;
+        }
+      });
+
+      // Project filtering functionality
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
+
+            // Update active button
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Filter projects
+            projectCards.forEach((card) => {
+              const category = card.getAttribute("data-category");
+
+              if (filter === "all" || category === filter) {
+                card.classList.remove("hidden");
+                card.style.display = "block";
+              } else {
+                card.classList.add("hidden");
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+
+      // Custom Cursor Animation
+      document.addEventListener("DOMContentLoaded", () => {
+        const cursor = document.querySelector(".cursor");
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        // Trail system for dotted effect
+        const trails = [];
+        const maxTrails = 20;
+        let previousX = 0;
+        let previousY = 0;
+        let isMoving = false;
+        let moveTimeout;
+
+        // Mouse move handler
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          // Calculate movement velocity for trail intensity
+          const deltaX = mouseX - previousX;
+          const deltaY = mouseY - previousY;
+          const velocity = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+          // Only create trails when moving fast enough
+          if (velocity > 2) {
+            isMoving = true;
+            createTrail(mouseX, mouseY, velocity);
+          }
+
+          previousX = mouseX;
+          previousY = mouseY;
+
+          // Reset moving state after a delay
+          clearTimeout(moveTimeout);
+          moveTimeout = setTimeout(() => {
+            isMoving = false;
+          }, 100);
+
+          // Create sparkles occasionally when moving fast
+          if (velocity > 5 && Math.random() > 0.9) {
+            createSparkle(mouseX, mouseY);
+          }
+        });
+
+        // Create dot trail
+        function createTrail(x, y, velocity) {
+          const trail = document.createElement("div");
+          trail.className = "cursor-trail active";
+          document.body.appendChild(trail);
+
+          // Position the dot at the cursor location
+          trail.style.transform = `translate3d(${x - 6}px, ${y - 6}px, 0)`;
+
+          // Add to trails array
+          trails.push({
+            element: trail,
+            life: 1.0,
+            decay: 0.015 + Math.random() * 0.015,
+          });
+
+          // Remove old trails
+          if (trails.length > maxTrails) {
+            const oldTrail = trails.shift();
+            if (oldTrail.element.parentNode) {
+              oldTrail.element.parentNode.removeChild(oldTrail.element);
+            }
+          }
+        }
+
+        // Smooth cursor animation loop
+        function animateCursor() {
+          // Smooth main cursor movement
+          cursorX += (mouseX - cursorX) * 0.25;
+          cursorY += (mouseY - cursorY) * 0.25;
+
+          // Use transform for hardware acceleration
+          cursor.style.transform = `translate3d(${cursorX - 10}px, ${
+            cursorY - 10
+          }px, 0)`;
+
+          // Animate existing trails
+          trails.forEach((trail, index) => {
+            trail.life -= trail.decay;
+            trail.element.style.opacity = Math.max(0, trail.life);
+
+            if (trail.life <= 0) {
+              if (trail.element.parentNode) {
+                trail.element.parentNode.removeChild(trail.element);
+              }
+              trails.splice(index, 1);
+            }
+          });
+
+          requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        // Create sparkle effect
+        function createSparkle(x, y) {
+          const sparkle = document.createElement("div");
+          sparkle.className = "cursor-sparkle";
+          sparkle.style.left = x - 2 + "px";
+          sparkle.style.top = y - 2 + "px";
+
+          // Random color for sparkles
+          const colors = ["#4f9cf9", "#ff6b35", "#2563eb", "#8b5cf6"];
+          sparkle.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+          document.body.appendChild(sparkle);
+
+          // Remove sparkle after animation
+          setTimeout(() => {
+            if (sparkle.parentNode) {
+              sparkle.parentNode.removeChild(sparkle);
+            }
+          }, 1500);
+        }
+
+        // Hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll(
+          "a, button, .project-card, .filter-btn"
+        );
+
+        interactiveElements.forEach((element) => {
+          element.addEventListener("mouseenter", () => {
+            cursor.classList.add("cursor-hover");
+          });
+
+          element.addEventListener("mouseleave", () => {
+            cursor.classList.remove("cursor-hover");
+          });
+
+          element.addEventListener("mousedown", () => {
+            cursor.classList.add("cursor-click");
+          });
+
+          element.addEventListener("mouseup", () => {
+            cursor.classList.remove("cursor-click");
+          });
+        });
+
+        // Click effect for all elements
+        document.addEventListener("mousedown", () => {
+          cursor.classList.add("cursor-click");
+          // Create multiple sparkles on click
+          for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+              const offsetX = (Math.random() - 0.5) * 30;
+              const offsetY = (Math.random() - 0.5) * 30;
+              createSparkle(mouseX + offsetX, mouseY + offsetY);
+            }, i * 50);
+          }
+        });
+
+        document.addEventListener("mouseup", () => {
+          cursor.classList.remove("cursor-click");
+        });
+      });
+    </script>
+  </body>
+</html>
